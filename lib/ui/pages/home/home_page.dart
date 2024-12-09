@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:local_search_app/core/geolocator_helper.dart';
 import 'package:local_search_app/ui/pages/home/home_view_model.dart';
 import 'package:local_search_app/ui/pages/home/widgets/local_search_item.dart';
 
@@ -19,6 +20,26 @@ class _HomePageState extends ConsumerState<HomePage> {
 
   void onSearch(String text) {
     ref.read(homeViewModelProvider.notifier).searchLocations(text);
+  }
+
+  Future<void> searchByGps() async {
+    // onPressed: () async {
+    //                   final position = await GeolocatorHelper.getPositon();
+    //                   if (position != null) {
+    //                     final viewModel =
+    //                         ref.read(addressSearchViewModel.notifier);
+    //                     viewModel.searchByLocation(
+    //                       position.latitude,
+    //                       position.longitude,
+    //                     );
+    //                   }
+    //                 },
+    final position = await GeolocatorHelper.getPositon();
+    if (position != null) {
+      ref
+          .read(homeViewModelProvider.notifier)
+          .searchByGps(position.latitude, position.longitude);
+    }
   }
 
   @override
@@ -68,7 +89,12 @@ class _HomePageState extends ConsumerState<HomePage> {
         textInputAction: TextInputAction.done,
         onSubmitted: (text) => onSearch(text),
       ),
+      actions: [
+        IconButton(
+          onPressed: searchByGps,
+          icon: Icon(Icons.gps_fixed),
+        ),
+      ],
     );
   }
 }
-
