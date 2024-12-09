@@ -10,6 +10,7 @@ class LocationRepository {
       'https://openapi.naver.com/v1/search/local.json',
       queryParameters: {
         'query': query,
+        'display': 5,
       },
       options: Options(
         headers: {

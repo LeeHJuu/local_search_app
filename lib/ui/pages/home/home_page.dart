@@ -85,7 +85,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              item.title,
+              item.replacedTitle(),
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
