@@ -22,3 +22,17 @@ class Location {
         'roadAddress': roadAddress,
       };
 }
+
+
+// "items": [
+//     {
+//       "title": "<b>광주</b>광역시청",
+//       "link": "https://www.youtube.com/user/livegwangju",
+//       "category": "공공,사회기관>특별,광역시청",
+//       "description": "",
+//       "telephone": "",
+//       "address": "광주광역시 서구 치평동 1200 광주광역시청",
+//       "roadAddress": "광주광역시 서구 내방로 111 광주광역시청",
+//       "mapx": "1268513379",
+//       "mapy": "351600320"
+//     },
